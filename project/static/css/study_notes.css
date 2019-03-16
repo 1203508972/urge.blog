@@ -1,0 +1,23 @@
+.page{
+    box-sizing: border-box;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+.page a{
+    border:1px solid gray;
+    border-radius: 5px;
+    padding: 15px 20px;
+    color: #767675;
+    cursor: pointer;
+    background: white;
+}
+.page .sel{
+    border:1px solid #199872;
+    border-radius: 5px;
+    padding: 15px 20px;
+    color: #767675;
+    cursor: pointer;
+    background: white;
+}

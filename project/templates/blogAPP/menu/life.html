@@ -1,0 +1,90 @@
+{% extends 'blogAPP/base.html' %}
+{% load staticfiles %}
+{% block title %}生活{% endblock %}
+{% block css %}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="t_nav"><a href="{% url 'blogAPP:index' %}" class="n1">网站首页</a><a href="/" class="n2">日记</a></h1>
+        {#推荐#}
+        <div class="sidebar">
+            {#推荐文章#}
+            <div class="tuijian">
+                <h2 class="hometitle">推荐文章</h2>
+                <ul class="tjpic">
+                    <i><img src="{{ list1.Dscr }}"></i>
+                    <p><a href="/">{{ list1.Dname }}</a></p>
+                </ul>
+                <ul class="sidenews">
+                    <li><i><img src="{{ list1.Dscr }}"></i>
+                        <p><a href="{{ list1.Dhref }}">{{ list1.Dname}}</a></p>
+                        <span>{{ list1.Dtime }}</span>
+                    </li>
+                </ul>
+
+                <ul class="sidenews">
+                    <li> <i><img src="{{ list2.Dscr }}"></i>
+                      <p><a href="{{ list2.Dhref }}">{{ list2.Dname}}</a></p>
+                      <span>{{ list2.Dtime }}</span> </li>
+                </ul>
+
+                <ul class="sidenews">
+                    <li> <i><img src="{{ list3.Dscr }}"></i>
+                      <p><a href="{{ list3.Dhref }}">{{ list3.Dname}}</a></p>
+                      <span>{{ list3.Dtime }}</span> </li>
+                </ul>
+
+            </div>
+            {#标签云#}
+            <div class="cloud">
+                <h2 class="hometitle">标签云</h2>
+                <ul>
+                    <a>校园生活</a>
+                    <a>html5</a>
+                    <a>Django</a>
+                    <a>青春</a>
+                    <a>温暖</a>
+                    <a>阳光</a>
+                    <a>Python</a>
+                </ul>
+            </div>
+
+            {#友情链接#}
+            <div class="links">
+                <h2 class="hometitle">友情链接</h2>
+                <ul>
+                    <li><a href="{% url 'blogAPP:index' %}" target="_blank">Urge博客</a></li>
+                </ul>
+            </div>
+
+            {#关注信息页#}
+            <div class="guanzhu" id="follow-us">
+                <h2 class="hometitle">关注我吧 么么哒！</h2>
+                <ul>
+                    <li class="sina"><a href="https://weibo.com/5554788309/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank"><span>新浪微博</span>Urge博客</a></li>
+                    <li class="qq"><a target="_blank"><span>QQ号</span>1203508972</a></li>
+                    <li class="email"><a target="_blank"><span>邮箱帐号</span>urge1219@foxmail.com</a></li>
+                    <li class="wxgzh"><a target="_blank"><span>微信公众号</span>Urge丶L</a></li>
+                </ul>
+            </div>
+        </div>
+        {#日记盒子#}
+        {%for lists in list%}
+            <div class="blogsbox">
+                <div class="blogs" data-scroll-reveal="enter bottom over 1s" >
+                    <h3 class="blogtitle"><a href="{{ lists.Dhref }}" target="_blank">{{ lists.Dname }}</a></h3>
+                    <span class="blogpic"><a href="{{ lists.Dhref }}" title=""><img src="{{ lists.Dscr }}" alt=""></a></span>
+                    <p class="blogtext">{{ lists.Dsummary }}... </p>
+                    <div class="bloginfo">
+                        <ul>
+                            <li class="author"><a href="/">{{ lists.Dauthor }}</a></li>
+                            <li class="lmname"><a href="/">日记</a></li>
+                            <li class="timer">{{ lists.Dtime }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {%endfor%}
+    </div>
+{% endblock %}

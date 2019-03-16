@@ -1,0 +1,26 @@
+{% extends 'blogAPP/base.html' %}
+{% load staticfiles %}
+{% block title %}关于我{% endblock %}
+{% block css %}
+{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+        <h1 class="t_nav"><a href="{% url 'blogAPP:index' %}" class="n1">网站首页</a><a href="{% url 'blogAPP:about' %}" class="n2">关于我</a></h1>
+            <div class="news_infos">
+                <ul>
+                    <h1>{{ about.Aname }}</h1>
+                    <p><br>{{ about.Acontent|linebreaksbr}}</p>
+                </ul>
+            </div>
+        <div class="sidebar">
+            <div class="about">
+                <p class="avatar"> <img src="{% static '/images/HeadPortrait.jpg' %}" alt=""> </p>
+                <p class="abname">Urge</p>
+                <p class="abposition">学习Django的萌新</p>
+                <p class="abtext">我是一个对生活乐观积极，热爱乒乓球和我所学的专业，也拥有很高的自学能力，目前学习了Django的基础内容和Python爬虫的基础内容，能够独立开发简易爬虫和简易的基于Django的Web应用</p>
+            </div>
+          </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'blogAPP/base.html' %}
+{% load staticfiles %}
+{% block title %}{{ Note.Note_name }}{% endblock %}
+{% block css %}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="t_nav">
+            <a href="/" class="n1">心得笔记</a><a href="/" class="n2">Django</a>
+        </h1>
+        <div class="news_infos">
+            {% autoescape off %}
+            <ul>
+                <h1>{{ Note.Note_name }}</h1>
+                <pre><br>{{ Note.Note_content}}</pre>
+            </ul>
+            {% endautoescape %}
+        </div>
+        <div class="sidebar">
+            <div class="about">
+                <p class="avatar"> <img src="{% static '/images/HeadPortrait.jpg' %}" alt=""> </p>
+                <p class="abname">Urge</p>
+                <p class="abposition">学习Django的萌新</p>
+                <p class="abtext">我是一个对生活乐观积极，热爱乒乓球和我所学的专业，也拥有很高的自学能力，目前学习了Django的基础内容和Python爬虫的基础内容，能够独立开发简易爬虫和简易的基于Django的Web应用</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
